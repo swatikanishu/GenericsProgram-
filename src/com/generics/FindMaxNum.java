@@ -2,40 +2,36 @@ package com.generics;
 import java.util.Scanner;
 
 public class FindMaxNum {
+    public static  <E extends Comparable> E findMaximum(E a, E b, E c){
+        E max=a;
+        if(b.compareTo(a)>0 && b.compareTo(c)>0){
+            max=b;
+        }else if(c.compareTo(max)>0){
+            max=c;
+        }
+        return max;
+    }
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter three string");
-        String i1 = sc.nextLine();
-        String i2 = sc.nextLine();
-        String i3 = sc.nextLine();
+        System.out.println("Welcome to Test Maximum Program");
+        Scanner sc=new Scanner(System.in);
 
+        //Max value for integer
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        int z=sc.nextInt();
+        System.out.println(findMaximum(x,y,z));
 
-        int result1 = i1.compareTo(i2);
-        int result2=0;
-        int result3=0;
-        if (result1 < 0) {
-            result2 = i2.compareTo(i3);
-        } else if (result1 > 0) {
-            result3 = i1.compareTo(i3);
-        } else {
-            result2 = i1.compareTo(i3);
-        }
-        if (result2 > 0) {
-            System.out.println(i2);
-        } else if (result2 < 0) {
-            System.out.println("Max for all three value are"+" "+i3);
-        } else if (result3>0){
-            System.out.println("Max for all three value are"+" "+i1);
-        }
-        else if(result3<0)
-        {
-            System.out.println("Max for all three value are"+" "+i3);
-        }
-        else
-        {
-            System.out.println("Max for all three value are"+" "+i1);
-        }
+        //Max value for float
+        float x1=sc.nextFloat();
+        float y1=sc.nextFloat();
+        float z1=sc.nextFloat();
+        System.out.println(findMaximum(x1,y1,z1));
+
+        //Max value for string
+        String x3=sc.next();
+        String y3=sc.next();
+        String z3=sc.next();
+        System.out.println(findMaximum(x3,y3,z3));
 
     }
 }
-
