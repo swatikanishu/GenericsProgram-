@@ -1,37 +1,21 @@
 package com.generics;
-import java.util.Scanner;
 
 public class FindMaxNum {
-    public static  <E extends Comparable> E findMaximum(E a, E b, E c){
-        E max=a;
-        if(b.compareTo(a)>0 && b.compareTo(c)>0){
-            max=b;
-        }else if(c.compareTo(max)>0){
-            max=c;
+
+        public static  <T extends Comparable> T maxNumber(T num1, T num2, T num3) {
+            if (num1.compareTo(num2) > 0 && num1.compareTo(num3) > 0) {
+                return num1;
+            } else if (num2.compareTo(num1) > 0 && num2.compareTo(num3) > 0) {
+                return num2;
+            } else
+                return num3;
         }
-        return max;
-    }
-    public static void main(String[] args){
-        System.out.println("Welcome to Test Maximum Program");
-        Scanner sc=new Scanner(System.in);
 
-        //Max value for integer
-        int x=sc.nextInt();
-        int y=sc.nextInt();
-        int z=sc.nextInt();
-        System.out.println(findMaximum(x,y,z));
-
-        //Max value for float
-        float x1=sc.nextFloat();
-        float y1=sc.nextFloat();
-        float z1=sc.nextFloat();
-        System.out.println(findMaximum(x1,y1,z1));
-
-        //Max value for string
-        String x3=sc.next();
-        String y3=sc.next();
-        String z3=sc.next();
-        System.out.println(findMaximum(x3,y3,z3));
+        public static void main(String[] args) {
+            System.out.println("Maximum number out of three integers is: " + maxNumber(31, 34, 400));
+            System.out.println("Maximum number out of three float is: " + maxNumber(7.3f, 0.95f, 78f));
+            System.out.println("Maximum among three string is: " + maxNumber("Apple", "Peach", "Banana"));
+        }
 
     }
-}
+
